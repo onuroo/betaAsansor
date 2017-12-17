@@ -29,6 +29,7 @@ export default class BinaBilgileri extends Component {
           typography: 'Headline',
           name: 'Cyan',
           code: 'A700',
+          page: 0
         };
       }
     onChangeText(text) {
@@ -42,98 +43,130 @@ export default class BinaBilgileri extends Component {
       updateRef(name, ref) {
         this[name] = ref;
       }
-  
+      changePage(){
+        const { page } = this.state
+        if(page == 0 ){
+          this.setState({ page: 1})
+        }else if(page == 1){
+          this.setState({ page: 2})
+        }else{
+          this.setState({ page: 0})
+        }
+      }
       render() {
-        let { typography, name, code, sample } = this.state;
+        let { typography, name, code, sample, page } = this.state;
   
         let textStyle = [
           styles.text,
           styles[typography],
           styles[name + code],
         ];
-  
-        return (
-
+        if(page == 0){
+          return (
             
-          <View style={styles.screen}>
-            <View style={styles.container}>
-            
-            <TouchableOpacity style={{height:30,width:120,justifyContent:'center',alignItems:'center',borderRadius:10,backgroundColor:'#fff'}}>
-                <Text style={{color:'black',fontSize:14}}>Barkod Oku</Text>
-            </TouchableOpacity>
-                <Dropdown
-                    containerStyle={{height:30,width:210,marginTop:30}}
-                    baseColor={'#fff'}
-                    textColor={'#fff'}
-                    itemColor={'black'}
-                    selectedItemColor={'black'}
-                    ref={this.typographyRef}
-                    value={typography}
-                    onChangeText={this.onChangeText}
-                    label='Seçiniz'
-                    data={typographyData}
-                    
-                />
-                <Dropdown
-                    containerStyle={{height:30,width:210,marginTop:30}}
-                    baseColor={'#fff'}
-                    textColor={'#fff'}
-                    itemColor={'black'}
-                    selectedItemColor={'black'}
-                    ref={this.typographyRef}
-                    value={typography}
-                    onChangeText={this.onChangeText}
-                    label='Seçiniz'
-                    data={typographyData}
-                    
-                />
-                <Dropdown
-                    containerStyle={{height:30,width:210,marginTop:30}}
-                    baseColor={'#fff'}
-                    textColor={'#fff'}
-                    itemColor={'black'}
-                    selectedItemColor={'black'}
-                    ref={this.typographyRef}
-                    value={typography}
-                    onChangeText={this.onChangeText}
-                    label='Seçiniz'
-                    data={typographyData}
-                    
-                />
-                <Dropdown
-                    containerStyle={{height:30,width:210,marginTop:30}}
-                    baseColor={'#fff'}
-                    textColor={'#fff'}
-                    itemColor={'black'}
-                    selectedItemColor={'black'}
-                    ref={this.typographyRef}
-                    value={typography}
-                    onChangeText={this.onChangeText}
-                    label='Seçiniz'
-                    data={typographyData}
-                    
-                />
-                <Dropdown
-                    containerStyle={{height:30,width:210,marginTop:30}}
-                    baseColor={'#fff'}
-                    textColor={'#fff'}
-                    itemColor={'black'}
-                    selectedItemColor={'black'}
-                    ref={this.typographyRef}
-                    value={typography}
-                    onChangeText={this.onChangeText}
-                    label='Seçiniz'
-                    data={typographyData}
-                    
-                />
-                <TouchableOpacity style={{marginTop:70,height:35,width:120,justifyContent:'center',alignItems:'center',borderRadius:20,backgroundColor:'#10c469'}}>
-                    <Text style={{color:'white',fontSize:14}}>İleri</Text>
-                </TouchableOpacity>
-  
+              
+            <View style={styles.screen}>
+              <View style={styles.container}>
+              
+              <TouchableOpacity style={{height:30,width:120,justifyContent:'center',alignItems:'center',borderRadius:10,backgroundColor:'#fff'}}>
+                  <Text style={{color:'black',fontSize:14}}>Barkod Oku</Text>
+              </TouchableOpacity>
+                  <Dropdown
+                      containerStyle={{height:30,width:210,marginTop:30}}
+                      baseColor={'#fff'}
+                      textColor={'#fff'}
+                      itemColor={'black'}
+                      selectedItemColor={'black'}
+                      ref={this.typographyRef}
+                      value={typography}
+                      onChangeText={this.onChangeText}
+                      label='Seçiniz'
+                      data={typographyData}
+                      
+                  />
+                  <Dropdown
+                      containerStyle={{height:30,width:210,marginTop:30}}
+                      baseColor={'#fff'}
+                      textColor={'#fff'}
+                      itemColor={'black'}
+                      selectedItemColor={'black'}
+                      ref={this.typographyRef}
+                      value={typography}
+                      onChangeText={this.onChangeText}
+                      label='Seçiniz'
+                      data={typographyData}
+                      
+                  />
+                  <Dropdown
+                      containerStyle={{height:30,width:210,marginTop:30}}
+                      baseColor={'#fff'}
+                      textColor={'#fff'}
+                      itemColor={'black'}
+                      selectedItemColor={'black'}
+                      ref={this.typographyRef}
+                      value={typography}
+                      onChangeText={this.onChangeText}
+                      label='Seçiniz'
+                      data={typographyData}
+                      
+                  />
+                  <Dropdown
+                      containerStyle={{height:30,width:210,marginTop:30}}
+                      baseColor={'#fff'}
+                      textColor={'#fff'}
+                      itemColor={'black'}
+                      selectedItemColor={'black'}
+                      ref={this.typographyRef}
+                      value={typography}
+                      onChangeText={this.onChangeText}
+                      label='Seçiniz'
+                      data={typographyData}
+                      
+                  />
+                  <Dropdown
+                      containerStyle={{height:30,width:210,marginTop:30}}
+                      baseColor={'#fff'}
+                      textColor={'#fff'}
+                      itemColor={'black'}
+                      selectedItemColor={'black'}
+                      ref={this.typographyRef}
+                      value={typography}
+                      onChangeText={this.onChangeText}
+                      label='Seçiniz'
+                      data={typographyData}
+                      
+                  />
+                  <TouchableOpacity onPress={() => this.changePage()} style={{marginTop:70,height:35,width:120,justifyContent:'center',alignItems:'center',borderRadius:20,backgroundColor:'#10c469'}}>
+                      <Text style={{color:'white',fontSize:14}}>İleri</Text>
+                  </TouchableOpacity>
+    
+              </View>
+    
             </View>
-  
-          </View>
-        );
+          );
+        }else if(page == 1){
+          return(
+            <View>
+              <Text>PAGE 2</Text>
+              <TouchableOpacity style={{height:40,width:120,backgroundColor:'green'}} onPress={() => this.setState({ page: 0 })}>
+              <Text>Geri</Text>
+                
+              </TouchableOpacity>
+                
+            </View>
+          )
+        }else{
+          return(
+            <View>
+              <Text>PAGE 3</Text>
+              <TouchableOpacity style={{height:40,width:120,backgroundColor:'green'}} onPress={() => this.setState({ page: 1 })}>
+              <Text>Geri</Text>
+                
+              </TouchableOpacity>
+            </View>
+          )
+        }
+        
       }
     
 }

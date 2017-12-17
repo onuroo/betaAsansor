@@ -1,6 +1,5 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import Home from '../screens/Home'
 import Login from '../screens/Login'
 import Tabs from '../screens/Tabs'
 
